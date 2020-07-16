@@ -46,11 +46,11 @@ app.get('/weather', (req, res) => {
         if (error)
             return res.send({error: error});
         else {
-            forecast(lattitude, longitude, (error, {temp}) => {
+            forecast(lattitude, longitude, (error, {temp,temp_min,temp_max}) => {
                 if (error)
                     return res.send({error: error})
                 else
-                    return res.send({location: place, temperature: temp})
+                    return res.send({location: place, temperature: temp,temp_min:temp_min,temp_max:temp_max})
             });
     }
     });

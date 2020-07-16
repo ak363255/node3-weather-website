@@ -7,7 +7,12 @@ const forecast = (lattitude, longitude, callback) => {
         else if (response.body.error || response.body.cod == '400')
             callback("Unable to find location", undefined);
         else {
-            callback(undefined, {temp: response.body.current.temp});
+            console.log("min temp is "+response);
+            
+            callback(undefined, {temp: response.body.current.temp,            
+                                 temp_min:response.body.daily[0].temp.min,
+                                 temp_max:response.body.daily[0].temp.max
+            });
         }
     });
 }
