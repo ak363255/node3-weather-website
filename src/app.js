@@ -20,7 +20,7 @@ app.use(express.static(public_dir_path))
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: "weather app",
+        title: "Weather App",
         name: "Amit"
     });
 });
@@ -39,7 +39,7 @@ app.get('/about', (req, res) => {
 })
 app.get('/weather', (req, res) => {
     if (!req.query.address)
-        return res.send({error: "please provide address"})
+        return res.send({error: "Please provide address"})
 
 
     geocode(req.query.address, (error, {lattitude, longitude, place} = {}) => {
@@ -64,7 +64,7 @@ app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404',
         name: "Amit",
-        message: 'help article not found '})
+        message: 'Help article not found '})
 });
 app.get('*', (req, res) => {
     res.render('404', {
