@@ -1,5 +1,5 @@
 const path = require('path')
-const express = require('express');
+const express= require('express');
 const hbs = require('hbs');
 const app = express();
 const port=process.env.PORT||3000;
@@ -46,11 +46,15 @@ app.get('/weather', (req, res) => {
         if (error)
             return res.send({error: error});
         else {
-            forecast(lattitude, longitude, (error, {temp,temp_min,temp_max}) => {
+            forecast(lattitude, longitude, (error, {temp,temp_min,temp_max,description}) => {
                 if (error)
                     return res.send({error: error})
                 else
-                    return res.send({location: place, temperature: temp,temp_min:temp_min,temp_max:temp_max})
+                    
+                {
+                   console.log(description+" des is ");
+                    return res.send({location: place, temperature: temp,temp_min:temp_min,temp_max:temp_max,description:description})
+                }
             });
     }
     });

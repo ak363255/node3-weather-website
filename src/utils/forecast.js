@@ -11,7 +11,8 @@ const forecast = (lattitude, longitude, callback) => {
             
             callback(undefined, {temp: response.body.current.temp,            
                                  temp_min:response.body.daily[0].temp.min,
-                                 temp_max:response.body.daily[0].temp.max
+                                 temp_max:response.body.daily[0].temp.max,
+                                 description:response.body.current.weather[0].description
             });
         }
     });
