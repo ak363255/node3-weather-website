@@ -34,8 +34,14 @@ weatherform.addEventListener('submit', (eventobject) => {
     const url = '/weather?address=' + location;
     fetch(url).then((response) => {
         response.json().then((data) => {
-            if (data.error)
+            if (data.error){
                 message1.textContent = data.error
+                message2.textContent = "";
+                message3.textContent="";
+                message4.textContent=""
+                message5.textContent="Search";
+               message6.textContent=""
+           }
             else {
                 message1.textContent = data.location;
                 message2.textContent = data.temperature+"\u00B0c";
